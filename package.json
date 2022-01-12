@@ -1,0 +1,23 @@
+{
+  "name": "ts-type-gymnastics",
+  "version": "1.0.0",
+  "description": "TypeScript Type Gymnastics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skychx/ts-type-gymnastics.git"
+  },
+  "author": "skychx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skychx/ts-type-gymnastics/issues"
+  },
+  "homepage": "https://github.com/skychx/ts-type-gymnastics#readme",
+  "dependencies": {
+    "@type-challenges/utils": "^0.1.1",
+    "typescript": "^4.5.4"
+  }
+}
