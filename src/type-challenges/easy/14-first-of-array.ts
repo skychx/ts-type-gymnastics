@@ -1,10 +1,10 @@
 import { Equal, Expect } from '@type-challenges/utils'
 
 // answers
-type First<T extends any[]> = T[0] extends T[number] ? T[0] : never;
-type First2<T extends any[]> = T extends [] ? never : T[0];
+type First<T extends unknown[]> = T[0] extends T[number] ? T[0] : never;
+type First2<T extends unknown[]> = T extends [] ? never : T[0];
 // use infer
-type First3<T extends any[]> = T extends [infer a, ...infer b] ? a : never;
+type First3<T extends unknown[]> = T extends [infer a, ...infer b] ? a : never;
 
 
 // test cases
