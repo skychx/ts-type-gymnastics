@@ -1,10 +1,11 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 // answer
 // use Uppercase<T>
 type MyCapitalize<T extends string> = T extends `${infer First}${infer Rest}` ? `${Uppercase<First>}${Rest}` : T;
 
 // test cases
+// @ts-ignore
 type cases = [
     Expect<Equal<MyCapitalize<'foobar'>, 'Foobar'>>,
     Expect<Equal<MyCapitalize<'FOOBAR'>, 'FOOBAR'>>,
@@ -35,5 +36,5 @@ type cases = [
     Expect<Equal<MyCapitalize<'w'>, 'W'>>,
     Expect<Equal<MyCapitalize<'x'>, 'X'>>,
     Expect<Equal<MyCapitalize<'y'>, 'Y'>>,
-    Expect<Equal<MyCapitalize<'z'>, 'Z'>>,
-]
+    Expect<Equal<MyCapitalize<'z'>, 'Z'>>
+];

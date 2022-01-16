@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 type WC = ' ' | '\n' | '\t';
 
@@ -6,10 +6,11 @@ type WC = ' ' | '\n' | '\t';
 type TrimRight<S extends string> = S extends `${infer Rest}${WC}` ? TrimRight<Rest> : S;
 
 // test cases
+// @ts-ignore
 type cases = [
     Expect<Equal<TrimRight<'str'>, 'str'>>,
     Expect<Equal<TrimRight<'str '>, 'str'>>,
     Expect<Equal<TrimRight<'str     '>, 'str'>>,
     Expect<Equal<TrimRight<'     str     '>, '     str'>>,
-    Expect<Equal<TrimRight<'   foo bar  \n\t '>, '   foo bar'>>,
-]
+    Expect<Equal<TrimRight<'   foo bar  \n\t '>, '   foo bar'>>
+];

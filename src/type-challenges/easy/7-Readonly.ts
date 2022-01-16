@@ -1,21 +1,19 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 interface Todo1 {
-    title: string
-    description: string
-    completed: boolean
+    title: string;
+    description: string;
+    completed: boolean;
     meta: {
-        author: string
-    }
+        author: string;
+    };
 }
 
 // answers
 type MyReadonly<T> = {
     readonly [K in keyof T]: T[K];
-}
+};
 
 // test cases
-type cases = [
-    Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>,
-]
-
+// @ts-ignore
+type cases = [Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>];

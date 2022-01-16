@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 type Foo = {
     a: number;
@@ -12,21 +12,22 @@ type Bar = {
 // answer
 type MyObject = Record<string, unknown>;
 type Merge<F extends MyObject, B extends MyObject> = {
-    [K in keyof F | keyof B]: 
-        K extends keyof B
-        ? B[K]
-        : K extends keyof F
-            ? F[K]
-            : never
-}
+    [K in keyof F | keyof B]: K extends keyof B ? B[K] : K extends keyof F ? F[K] : never;
+};
 
-type test = Merge<Foo, Bar>
+type test = Merge<Foo, Bar>;
 
 // test cases
+// @ts-ignore
 type cases = [
-    Expect<Equal<Merge<Foo, Bar>, {
-        a: number;
-        b: number;
-        c: boolean;
-    }>>
-]
+    Expect<
+        Equal<
+            Merge<Foo, Bar>,
+            {
+                a: number;
+                b: number;
+                c: boolean;
+            }
+        >
+    >
+];

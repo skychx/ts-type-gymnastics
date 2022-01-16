@@ -1,15 +1,11 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 // answer
 type Letter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z';
-type CamelCase<S extends string>
-    = S extends `${infer Head}-${infer Tail}`
-        ? Tail extends `${Letter}${infer _}`
-            ? `${Head}${CamelCase<Capitalize<Tail>>}`
-            : `${Head}-${CamelCase<Tail>}`
-        : S
+type CamelCase<S extends string> = S extends `${infer Head}-${infer Tail}` ? (Tail extends `${Letter}${infer _}` ? `${Head}${CamelCase<Capitalize<Tail>>}` : `${Head}-${CamelCase<Tail>}`) : S;
 
 // test cases
+// @ts-ignore
 type cases = [
     Expect<Equal<CamelCase<'foo-bar-baz'>, 'fooBarBaz'>>,
     Expect<Equal<CamelCase<'foo-Bar-Baz'>, 'foo-Bar-Baz'>>,
@@ -22,5 +18,5 @@ type cases = [
     Expect<Equal<CamelCase<'ABC'>, 'ABC'>>,
     Expect<Equal<CamelCase<'-'>, '-'>>,
     Expect<Equal<CamelCase<''>, ''>>,
-    Expect<Equal<CamelCase<'😎'>, '😎'>>,
-]
+    Expect<Equal<CamelCase<'😎'>, '😎'>>
+];

@@ -1,14 +1,14 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 // answer
-type ReplaceAll<S extends string, From extends string, To extends string> =
-From extends ''
+type ReplaceAll<S extends string, From extends string, To extends string> = From extends ''
     ? S
     : S extends `${infer Front}${From}${infer Last}`
-        ? `${Front}${To}${ReplaceAll<Last, From, To>}` // use recursion
-        : S;
+    ? `${Front}${To}${ReplaceAll<Last, From, To>}` // use recursion
+    : S;
 
 // test cases
+// @ts-ignore
 type cases = [
     Expect<Equal<ReplaceAll<'foobar', 'bar', 'foo'>, 'foofoo'>>,
     Expect<Equal<ReplaceAll<'foobar', 'bag', 'foo'>, 'foobar'>>,
@@ -18,5 +18,5 @@ type cases = [
     Expect<Equal<ReplaceAll<'barfoo', 'bar', 'foo'>, 'foofoo'>>,
     Expect<Equal<ReplaceAll<'foobarfoobar', 'ob', 'b'>, 'fobarfobar'>>,
     Expect<Equal<ReplaceAll<'foboorfoboar', 'bo', 'b'>, 'foborfobar'>>,
-    Expect<Equal<ReplaceAll<'', '', ''>, ''>>,
-]
+    Expect<Equal<ReplaceAll<'', '', ''>, ''>>
+];

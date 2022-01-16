@@ -1,47 +1,46 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
 
 // answers
 type DeepReadonly<T> = {
-    readonly [K in keyof T]: (keyof T[K]) extends never ? T[K] : DeepReadonly<T[K]>
-}
+    readonly [K in keyof T]: keyof T[K] extends never ? T[K] : DeepReadonly<T[K]>;
+};
 
-type test = DeepReadonly<X>
+type test = DeepReadonly<X>;
 
 // test cases
-type cases = [
-    Expect<Equal<DeepReadonly<X>, Expected>>,
-]
+// @ts-ignore
+type cases = [Expect<Equal<DeepReadonly<X>, Expected>>];
 
 type X = {
-    a: () => 22
-    b: string
+    a: () => 22;
+    b: string;
     c: {
-        d: boolean
+        d: boolean;
         e: {
             g: {
                 h: {
-                    i: true
-                    j: 'string'
-                }
-                k: 'hello'
-            }
-        }
-    }
-}
+                    i: true;
+                    j: 'string';
+                };
+                k: 'hello';
+            };
+        };
+    };
+};
 
 type Expected = {
-    readonly a: () => 22
-    readonly b: string
+    readonly a: () => 22;
+    readonly b: string;
     readonly c: {
-        readonly d: boolean
+        readonly d: boolean;
         readonly e: {
             readonly g: {
                 readonly h: {
-                    readonly i: true
-                    readonly j: 'string'
-                }
-                readonly k: 'hello'
-            }
-        }
-    }
-}
+                    readonly i: true;
+                    readonly j: 'string';
+                };
+                readonly k: 'hello';
+            };
+        };
+    };
+};

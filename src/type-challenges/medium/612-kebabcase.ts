@@ -1,18 +1,18 @@
 import { Equal, Expect } from '@type-challenges/utils';
-import { StringToUnion } from "./531-string-to-union";
+import { StringToUnion } from './531-string-to-union';
 
 // answer
-type UpperCases = StringToUnion<'ABCDEFGHIJKLMNOPQRSTUVXYZ'>
-type KebabCase<Text extends string, Result extends string = ''> =
-Text extends `${infer First}${infer Rest}`
+type UpperCases = StringToUnion<'ABCDEFGHIJKLMNOPQRSTUVXYZ'>;
+type KebabCase<Text extends string, Result extends string = ''> = Text extends `${infer First}${infer Rest}`
     ? First extends UpperCases
         ? Result extends ''
             ? KebabCase<Rest, `${Result}${Lowercase<First>}`>
             : KebabCase<Rest, `${Result}-${Lowercase<First>}`>
         : KebabCase<Rest, `${Result}${Lowercase<First>}`>
-    : Result
+    : Result;
 
 // test cases
+// @ts-ignore
 type cases = [
     Expect<Equal<KebabCase<'FooBarBaz'>, 'foo-bar-baz'>>,
     Expect<Equal<KebabCase<'fooBarBaz'>, 'foo-bar-baz'>>,
@@ -22,5 +22,5 @@ type cases = [
     Expect<Equal<KebabCase<'ABC'>, 'a-b-c'>>,
     Expect<Equal<KebabCase<'-'>, '-'>>,
     Expect<Equal<KebabCase<''>, ''>>,
-    Expect<Equal<KebabCase<'😎'>, '😎'>>,
-]
+    Expect<Equal<KebabCase<'😎'>, '😎'>>
+];
