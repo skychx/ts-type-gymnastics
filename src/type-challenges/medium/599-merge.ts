@@ -29,5 +29,5 @@ type cases = [
                 c: boolean;
             }
         >
-    >
+    >,
 ];

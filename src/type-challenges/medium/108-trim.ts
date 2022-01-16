@@ -21,7 +21,7 @@ type cases = [
     Expect<Equal<Trim<'     str'>, 'str'>>,
     Expect<Equal<Trim<'str   '>, 'str'>>,
     Expect<Equal<Trim<'     str     '>, 'str'>>,
-    Expect<Equal<Trim<'   \n\t foo bar \t'>, 'foo bar'>>
+    Expect<Equal<Trim<'   \n\t foo bar \t'>, 'foo bar'>>,
 ];
 
 // @ts-ignore
@@ -31,5 +31,5 @@ type cases2 = [
     Expect<Equal<Trim2<'     str'>, 'str'>>,
     Expect<Equal<Trim2<'str   '>, 'str'>>,
     Expect<Equal<Trim2<'     str     '>, 'str'>>,
-    Expect<Equal<Trim2<'   \n\t foo bar \t'>, 'foo bar'>>
+    Expect<Equal<Trim2<'   \n\t foo bar \t'>, 'foo bar'>>,
 ];

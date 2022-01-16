@@ -18,5 +18,5 @@ type cases = [
     Expect<Equal<ReplaceAll<'barfoo', 'bar', 'foo'>, 'foofoo'>>,
     Expect<Equal<ReplaceAll<'foobarfoobar', 'ob', 'b'>, 'fobarfobar'>>,
     Expect<Equal<ReplaceAll<'foboorfoboar', 'bo', 'b'>, 'foborfobar'>>,
-    Expect<Equal<ReplaceAll<'', '', ''>, ''>>
+    Expect<Equal<ReplaceAll<'', '', ''>, ''>>,
 ];
