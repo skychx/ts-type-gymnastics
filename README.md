@@ -15,6 +15,3 @@ src
     ├── hard
     └── medium
 ```
-
-
-
