@@ -105,3 +105,6 @@ dist
 
 # test file
 test.ts
+
+# vscode
+*.code-workspace
